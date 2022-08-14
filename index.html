@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Not Jeopardy</title>
+    <style>
+
+	.foote {
+            position: fixed;
+            padding: 10px 10px 0px 10px;
+            bottom: 0;
+            width: 100%;
+            /* Height of the footer*/
+            height: 40px;
+            background: grey;
+        }
+    </style>
+  </head>
+<body>
+<div style="display: none">
+	<form class="filething">
+		<input name="filethingy" type="file">
+		<button>Submit File</button>
+	</form>
+</div>
+
+
+
+<div class="container-fluid" id="pageContent">
+<div id="intropage">
+	<div class="container">
+
+		<div>
+			<h1 class="jtext">Host a game</h1>
+		</div>
+		<form class="hostgame">
+			<div class="form-group">
+				<button class="btn btn-primary">Host Game</button>
+			</div>
+		</form>
+	</div>
+
+	<div class="container">
+		<div>
+			<h1 class="jtext">Join an existing game</h1>
+		</div>
+		<form class="joingame">
+			<div class="form-group">
+				<div class="row">
+					<div class="col-6">
+						<input class="form-control" name="idval" type="text" placeholder="ID">
+					</div>
+					<div class="col-6">
+						<input class="form-control" name="nameval" type="text" placeholder="Username">
+					</div>
+				</div>
+				<button class="btn btn-primary">Join Game</button>
+			</div>
+		</form>
+	</div>
+</div>
+
+	
+
+	<div style="display: none" id="waitpage">
+		<h1>Room ID:</h1>
+		<h1 id="roomid"></h1>
+
+		<div style="display: none" id="hostcontrols">
+			<form class="startgame">
+				<div class="form-group">
+					<button class="btn btn-primary">Start Game</button>
+				</div>			
+			</form>
+		</div>
+	</div>
+
+	<div id="stage1" class="container-fluid p-2 " style="display: none">
+		<table style="table-layout: fixed; background-color: darkblue; color: white;" width="100%" class=" table table-bordered border-dark">
+			<thead>
+				<tr>
+					<th class="fonthing container-fluid my-auto"><div class="d-flex justify-content-center text-center"><h4  id="cat1"></h4></div></th>
+					<th class="fonthing container-fluid my-auto"><div class="d-flex justify-content-center text-center my-auto"><h4  id="cat2"></h4></div></th>
+					<th class="fonthing container-fluid my-auto"><div class="d-flex justify-content-center text-center my-auto"><h4  id="cat3"></h4></div></th>
+					<th class="fonthing container-fluid my-auto"><div class="d-flex justify-content-center text-center my-auto"><h4  id="cat4"></h4></div></th>
+					<th class="fonthing container-fluid my-auto"><div class="d-flex justify-content-center text-center my-auto"><h4  id="cat5"></h4></div></th>
+					<th class="fonthing container-fluid my-auto"><div class="d-flex justify-content-center text-center my-auto"><h4  id="cat6"></h4></div></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th id="r1c1"><h2 class="my-3 d-flex justify-content-center">200</h2></th>
+					<th id="r1c2"><h2 class="my-3 d-flex justify-content-center">200</h2></th>
+					<th id="r1c3"><h2 class="my-3 d-flex justify-content-center">200</h2></th>
+					<th id="r1c4"><h2 class="my-3 d-flex justify-content-center">200</h2></th>
+					<th id="r1c5"><h2 class="my-3 d-flex justify-content-center">200</h2></th>
+					<th id="r1c6"><h2 class="my-3 d-flex justify-content-center">200</h2></th>
+				</tr>
+				<tr>
+					<th id="r2c1"><h2 class="my-3 d-flex justify-content-center">400</h2></th>
+					<th id="r2c2"><h2 class="my-3 d-flex justify-content-center">400</h2></th>
+					<th id="r2c3"><h2 class="my-3 d-flex justify-content-center">400</h2></th>
+					<th id="r2c4"><h2 class="my-3 d-flex justify-content-center">400</h2></th>
+					<th id="r2c5"><h2 class="my-3 d-flex justify-content-center">400</h2></th>
+					<th id="r2c6"><h2 class="my-3 d-flex justify-content-center">400</h2></th>
+				</tr>
+				<tr>
+					<th id="r3c1"><h2 class="my-3 d-flex justify-content-center">600</h2></th>
+					<th id="r3c2"><h2 class="my-3 d-flex justify-content-center">600</h2></th>
+					<th id="r3c3"><h2 class="my-3 d-flex justify-content-center">600</h2></th>
+					<th id="r3c4"><h2 class="my-3 d-flex justify-content-center">600</h2></th>
+					<th id="r3c5"><h2 class="my-3 d-flex justify-content-center">600</h2></th>
+					<th id="r3c6"><h2 class="my-3 d-flex justify-content-center">600</h2></th>
+				</tr>
+				<tr>
+					<th id="r4c1"><h2 class="my-3 d-flex justify-content-center">800</h2></th>
+					<th id="r4c2"><h2 class="my-3 d-flex justify-content-center">800</h2></th>
+					<th id="r4c3"><h2 class="my-3 d-flex justify-content-center">800</h2></th>
+					<th id="r4c4"><h2 class="my-3 d-flex justify-content-center">800</h2></th>
+					<th id="r4c5"><h2 class="my-3 d-flex justify-content-center">800</h2></th>
+					<th id="r4c6"><h2 class="my-3 d-flex justify-content-center">800</h2></th>
+				</tr>
+				<tr>
+					<th id="r5c1"><h2 class="my-3 d-flex justify-content-center">1000</h2></th>
+					<th id="r5c2"><h2 class="my-3 d-flex justify-content-center">1000</h2></th>
+					<th id="r5c3"><h2 class="my-3 d-flex justify-content-center">1000</h2></th>
+					<th id="r5c4"><h2 class="my-3 d-flex justify-content-center">1000</h2></th>
+					<th id="r5c5"><h2 class="my-3 d-flex justify-content-center">1000</h2></th>
+					<th id="r5c6"><h2 class="my-3 d-flex justify-content-center">1000</h2></th>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div id="stage2" style="display: none">
+		<table style="table-layout: fixed; background-color: darkblue; color: white;" width="100%" class=" table table-bordered border-dark">
+			<thead>
+			<tr>
+				<th class="container-fluid my-auto"><div class="d-flex justify-content-center text-center"><h4  id="cat7"></h4></div></th>
+				<th class="container-fluid my-auto"><div class="d-flex justify-content-center text-center"><h4  id="cat8"></h4></div></th>
+				<th class="container-fluid my-auto"><div class="d-flex justify-content-center text-center"><h4  id="cat9"></h4></div></th>
+				<th class="container-fluid my-auto"><div class="d-flex justify-content-center text-center"><h4  id="cat10"></h4></div></th>
+				<th class="container-fluid my-auto"><div class="d-flex justify-content-center text-center"><h4  id="cat11"></h4></div></th>
+				<th class="container-fluid my-auto"><div class="d-flex justify-content-center text-center"><h4  id="cat12"></h4></div></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<th id="r1c7"><h2 class="my-3 d-flex justify-content-center">400</h2></th>
+				<th id="r1c8"><h2 class="my-3 d-flex justify-content-center">400</h2></th>
+				<th id="r1c9"><h2 class="my-3 d-flex justify-content-center">400</h2></th>
+				<th id="r1c10"><h2 class="my-3 d-flex justify-content-center">400</h2></th>
+				<th id="r1c11"><h2 class="my-3 d-flex justify-content-center">400</h2></th>
+				<th id="r1c12"><h2 class="my-3 d-flex justify-content-center">400</h2></th>
+			</tr>
+			<tr>
+				<th id="r2c7"><h2 class="my-3 d-flex justify-content-center">800</h2></th>
+				<th id="r2c8"><h2 class="my-3 d-flex justify-content-center">800</h2></th>
+				<th id="r2c9"><h2 class="my-3 d-flex justify-content-center">800</h2></th>
+				<th id="r2c10"><h2 class="my-3 d-flex justify-content-center">800</h2></th>
+				<th id="r2c11"><h2 class="my-3 d-flex justify-content-center">800</h2></th>
+				<th id="r2c12"><h2 class="my-3 d-flex justify-content-center">800</h2></th>
+			</tr>
+			<tr>
+				<th id="r3c7"><h2 class="my-3 d-flex justify-content-center">1200</h2></th>
+				<th id="r3c8"><h2 class="my-3 d-flex justify-content-center">1200</h2></th>
+				<th id="r3c9"><h2 class="my-3 d-flex justify-content-center">1200</h2></th>
+				<th id="r3c10"><h2 class="my-3 d-flex justify-content-center">1200</h2></th>
+				<th id="r3c11"><h2 class="my-3 d-flex justify-content-center">1200</h2></th>
+				<th id="r3c12"><h2 class="my-3 d-flex justify-content-center">1200</h2></th>
+			</tr>
+			<tr>
+				<th id="r4c7"><h2 class="my-3 d-flex justify-content-center">1600</h2></th>
+				<th id="r4c8"><h2 class="my-3 d-flex justify-content-center">1600</h2></th>
+				<th id="r4c9"><h2 class="my-3 d-flex justify-content-center">1600</h2></th>
+				<th id="r4c10"><h2 class="my-3 d-flex justify-content-center">1600</h2></th>
+				<th id="r4c11"><h2 class="my-3 d-flex justify-content-center">1600</h2></th>
+				<th id="r4c12"><h2 class="my-3 d-flex justify-content-center">1600</h2></th>
+			</tr>
+			<tr>
+				<th id="r5c7"><h2 class="my-3 d-flex justify-content-center">2000</h2></th>
+				<th id="r5c8"><h2 class="my-3 d-flex justify-content-center">2000</h2></th>
+				<th id="r5c9"><h2 class="my-3 d-flex justify-content-center">2000</h2></th>
+				<th id="r5c10"><h2 class="my-3 d-flex justify-content-center">2000</h2></th>
+				<th id="r5c11"><h2 class="my-3 d-flex justify-content-center">2000</h2></th>
+				<th id="r5c12"><h2 class="my-3 d-flex justify-content-center">2000</h2></th>
+			</tr>
+		</tbody>
+		</table>
+	</div>
+	<div style="display: none"  id="showQuestion">
+		<div class="container">
+			<div class="row">
+				<div class="d-flex justify-content align-items">
+				<br>
+				<h1 class="text-center" id="qText">
+				</h1>
+				</div>
+			</div>
+
+		<div class="row">
+				<h2 class="text-center">Clue Value: </h2>
+				<h2 class="text-center"> </h2>
+				<h2 class="text-center" id="valuetxt"></h2>
+		</div>
+
+		<div class="row">
+		
+		<div style="display: none" id="canBuzz">
+			<h1>SPACE TO BUZZ!</h1>
+		</div>
+		</div>
+		<div style="display: none"  id="showQuestionHost">
+			<h2>Answer:</h2>
+			<h3 id="aText">
+			</h3>
+			<form class="allowBuzz">
+				<div class="form-group">
+					<button class="btn btn-warning">Allow Buzzing</button>
+				</div>			
+			</form>
+
+
+			
+			<div id="nextQdiv">
+				<form class="nextQ">
+					<div class="form-group">
+					<button class="btn btn-secondary">Next Question</button>
+				</div>			
+				</form>
+			</div>
+			
+
+			<div id="manageAnswers" style="display: none">
+				<form class="acceptAnswer">
+					<div class="form-group">
+					<button class="btn btn-success">Right</button>
+				</div>			
+				</form>
+				<form class="rejectAnswer">
+					<div class="form-group">
+					<button class="btn btn-danger">Wrong</button>
+				</div>			
+				</form>
+			</div>
+		
+		</div>
+		</div>
+	</div>
+
+	<div style="display: none" id="dailydouble">
+		<h1>DAILY DOUBLE</h1>
+		<h2 id="categoryName">Category Goes Here</h2>
+
+		<div id="wagerArea">
+			<form class="wager">
+				<input name="wagerAmount" class="form-control" type="number" placeholder="Enter Wager">
+				<div class="form-group">
+					<button class="btn btn-primary">Submit</button>
+				</div>		
+			</form>
+		</div>
+
+	</div>
+
+	<div style="display: none" id="final">
+		<h1>FINAL JEOPARDY</h1>
+		<h2 id="finalCategoryName">Category Goes Here</h2>
+
+		<div style="display: none" id="finalWagerArea">
+			<form class="fjwager">
+				<input name="wagerAmount" class="form-control" type="number" placeholder="Enter Wager">
+				<button>Submit</button>
+			</form>
+		</div>
+		<div style="display: none" id="nofj">
+			<h1>YOU CANNOT PARTICIPATE IN FINAL JEOPARDY WITH A NEGATIVE SCORE</h1>
+		</div>
+
+		<div style="display: none" id="hostNext">
+			<form class="fjToClue">
+				<div class="form-group">
+					<button class="btn btn-primary">Next</button>
+				</div>
+			</form>
+		</div>
+
+	</div>
+
+	<div style="display: none" id="finalClue">
+		<h1>FINAL JEOPARDY</h1>
+		<h2 id="finalCategoryClue">Clue Goes Here</h2>
+
+		<div style="display: none" id="finalAnswerArea">
+			<form class="fjanswer">
+				<input name="fjanswer" type="text" placeholder="Enter Response">
+				<div class="form-group">
+					<button class="btn btn-primary">Submit</button>
+				</div>
+			</form>
+		</div>
+		<div style="display: none" id="nofj2">
+			<h1>YOU CANNOT PARTICIPATE IN FINAL JEOPARDY WITH A NEGATIVE SCORE</h1>
+		</div>
+
+		<div style="display: none" id="hostNext2">
+			<form class="clueToResults">
+				<div class="form-group">
+					<button class="btn btn-primary">Next</button>
+				</div>
+			</form>
+		</div>
+
+	</div>
+
+	<div style="display: none" id="fjResult">
+		<h1>FINAL JEOPARDY</h1>
+		<div id="finalinfo" style="display: none" class="container">
+			<table class="table table-bordered">
+			<tr>
+				<td><h2>Player </h2></td>
+				<td ><h2 id="resPlayer"></h2></td>
+			</tr>
+
+			<tr>
+				<td><h2>Response</h2> </td>
+				<td ><h2 id="resAns"></h2></td>
+			</tr>
+
+			<tr>
+				<td><h2>Wager</h2> </td>
+				<td ><h2 id="resWager"></h2></td>
+			</tr>
+		</table>
+		</div>
+			
+
+		<div style="display: none" id="hostNext3">
+			<div>
+				<h2>Answer:</h2>
+				<h2 id="fjAnswer"></h2>
+			</div>
+			<form class="resSwitch">
+				<div class="form-group">
+					<button class="btn btn-primary">Next</button>
+				</div>
+			</form>
+
+			<div id="manageAnswersfj" style="display: none">
+				<form class="acceptAnswerfj">
+					<div class="form-group">
+						<button class="btn btn-success">Right</button>
+					</div>
+				</form>
+				<form class="rejectAnswerfj">
+					<div class="form-group">
+						<button class="btn btn-danger">Wrong</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div style="display: none" id="gameResults">
+		<h1>THANKS FOR PLAYING</h1>
+	</div>
+
+<!--
+	<form class="testerform">
+		<button>Click</button>
+	</form>
+-->
+
+	<div id="playersdiv" style="display: none !important;" class="fixed-bottom p-3 text-white bg-dark">
+
+	<div class="d-flex justify-content-start" id="players">
+		
+	</div>
+	</div>
+</div>
+	<script src="bundle.js"></script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
